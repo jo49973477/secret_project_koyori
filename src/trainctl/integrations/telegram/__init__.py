@@ -1,0 +1,2 @@
+"""Optional Telegram presentation adapter."""
+

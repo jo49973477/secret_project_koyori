@@ -1,0 +1,46 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "trainctl"
+version = "0.1.0"
+description = "A lightweight, framework-agnostic deep-learning experiment supervisor"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [{ name = "trainctl contributors" }]
+keywords = ["deep-learning", "experiment-tracking", "telegram", "gpu", "training"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+  "psutil>=5.9",
+  "typer>=0.12",
+]
+
+[project.optional-dependencies]
+telegram = ["python-telegram-bot>=21,<23"]
+discord = ["httpx>=0.27,<1"]
+nvml = ["nvidia-ml-py>=12"]
+all = ["python-telegram-bot>=21,<23", "httpx>=0.27,<1", "nvidia-ml-py>=12"]
+
+[dependency-groups]
+dev = ["pytest>=8", "pytest-asyncio>=0.24"]
+
+[project.scripts]
+trainctl = "trainctl.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/trainctl"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+asyncio_mode = "auto"
