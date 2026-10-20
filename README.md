@@ -8,6 +8,8 @@ metrics locally, captures logs, watches checkpoints, and sends notifications.
 
 - [English User Guide](docs/user-guide.en.md)
 - [한국어 사용 가이드](docs/user-guide.ko.md)
+- [trainctl 사용 사전 (한국어)](docs/dictionary/trainctl-usage.ko.md)
+- [trainctl Usage Dictionary (English)](docs/dictionary/trainctl-usage.en.md)
 
 ## Architecture
 
